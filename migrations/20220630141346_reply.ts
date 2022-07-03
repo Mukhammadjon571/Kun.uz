@@ -3,7 +3,7 @@ import { Knex } from 'knex';
 export async function up(knex: Knex): Promise<void> {
   await knex.raw(`
   create table if not exists reply(
-     id         uuid          not null primary key defualt guuid_generate_4(),
+     id         uuid          primary key default uuid_generate_v4(),
      comment_id uuid          not null references comment (id),
      message    varchar(1024) not null,
      username   varchar(255)  not null,
