@@ -6,10 +6,10 @@ export async function up(knex: Knex): Promise<void> {
   `);
 
   await knex.raw(`
-    id uuid not null primary key default uuid_generate_v4(),
-    created_at timestamp not null     default  current_timestamp,
-    news_id uuid not null references news (id),
-    rating rating not null default '1'
+    id          uuid        not null    primary key     default uuid_generate_v4(),
+    created_at  timestamp   not null    default         current_timestamp,
+    news_id     uuid        not null    references      news (id),
+    rating      rating      not null    default         '1'
   `);
 }
 
