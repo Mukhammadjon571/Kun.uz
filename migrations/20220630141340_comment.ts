@@ -4,7 +4,7 @@ export async function up(knex: Knex): Promise<void> {
   await knex.raw(`
   create table if not exists comment
   (
-      id         uuid           not null primary key default uuid_generate_v4()
+      id         uuid           primary key default uuid_generate_v4(),
       message    varchar(1024)  not null,
       username   varchar(255)   not null,
       likes      int            not null default 0,
