@@ -36,7 +36,7 @@ export class ReplyRepo {
 
   async delete(id: string) {
     return (
-      await this.knex.delete().from('comment').where({ id }).returning('*')
+      await this.knex.delete().from('reply').where({ id }).returning('*')
     )[0];
   }
 }

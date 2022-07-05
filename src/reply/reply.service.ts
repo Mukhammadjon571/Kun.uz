@@ -1,7 +1,13 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { ReplyRepo } from './repo/reply.repo';
-import { CreateReplyDTO,GetReplyByIdDTO, GetReplyParamsDTO, UpdateReplyDTO, UpdateReplyParamsDTO, DeleteReplyByIdDTO } from './dto/reply.dto';
-
+import {
+  CreateReplyDTO,
+  GetReplyByIdDTO,
+  GetReplyParamsDTO,
+  UpdateReplyDTO,
+  UpdateReplyParamsDTO,
+  DeleteReplyByIdDTO,
+} from './dto/reply.dto';
 
 @Injectable()
 export class ReplyService {
@@ -20,16 +26,16 @@ export class ReplyService {
   }
 
   async update(params: UpdateReplyParamsDTO, body: UpdateReplyDTO) {
-    await this.checkCommentExists(params.id);
+    await this.checkReplyExists(params.id);
     return await this.replyRepo.update(params.id, body);
   }
 
   async delete(params: DeleteReplyByIdDTO) {
-    await this.checkCommentExists(params.id);
+    await this.checkReplyExists(params.id);
     return await this.replyRepo.delete(params.id);
   }
 
-  private async checkCommentExists(id: string) {
+  private async checkReplyExists(id: string) {
     const reply = await this.replyRepo.findById(id);
     if (!reply) {
       throw new Error('Reply not found');
