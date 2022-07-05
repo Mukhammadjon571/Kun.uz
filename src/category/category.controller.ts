@@ -34,7 +34,7 @@ export class CategoryController {
   }
 
   @Delete(':id')
-  async delete(@Body() params: DeleteCategoryParamsDTO) {
+  async delete(@Param() params: DeleteCategoryParamsDTO) {
     return await this.categoryService.delete(params);
   }
 }
