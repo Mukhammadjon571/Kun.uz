@@ -22,7 +22,7 @@ export class CategoryRepo {
   }
 
   async findOne(id: string) {
-    return this.knex.select('*').from('category').where({ id }).first();
+    return await this.knex.select('*').from('category').where({ id }).first();
   }
 
   async update(id: string, { name }: UpdateCategoryDTO) {
