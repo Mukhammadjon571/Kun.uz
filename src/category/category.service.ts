@@ -17,12 +17,12 @@ export class CategoryService {
     return await this.categoryRepo.create(body);
   }
 
-  async findAll(params: GetCategoryDTO) {
-    return await this.categoryRepo.findAll(params);
+  findAll(params: GetCategoryDTO) {
+    return this.categoryRepo.findAll(params);
   }
 
-  async findOne(params: GetCategoryParamsDTO) {
-    return await this.categoryRepo.findOne(params.id);
+  findOne(params: GetCategoryParamsDTO) {
+    return this.categoryRepo.findOne(params.id);
   }
 
   async update(params: UpdateCategoryParamsDTO, body: UpdateCategoryDTO) {
