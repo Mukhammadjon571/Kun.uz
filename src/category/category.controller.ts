@@ -23,17 +23,17 @@ export class CategoryController {
     return await this.categoryService.findAll(params);
   }
 
-  @Get('/:id')
+  @Get(':id')
   async findOne(@Param() params: GetCategoryParamsDTO) {
     return await this.categoryService.findOne(params);
   }
 
-  @Put('/:id')
+  @Put(':id')
   async update(@Param() params: UpdateCategoryParamsDTO, @Body() body: UpdateCategoryDTO) {
     return await this.categoryService.update(params, body);
   }
 
-  @Delete()
+  @Delete(':id')
   async delete(@Body() params: DeleteCategoryParamsDTO) {
     return await this.categoryService.delete(params);
   }
