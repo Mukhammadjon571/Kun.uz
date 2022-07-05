@@ -5,8 +5,8 @@ export async function up(knex: Knex): Promise<void> {
     create table if not exists category
     (
       id         uuid primary key   default uuid_generate_v4(),
-      name             jsonb      not null,
-      created_at       timestamp  not null    default  current_timestamp
+      created_at       timestamp  not null    default  current_timestamp,
+      name             jsonb      not null
     );
   `);
 }

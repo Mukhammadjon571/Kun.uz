@@ -5,8 +5,9 @@ export async function up(knex: Knex): Promise<void> {
     create table if not exists news
     (
         id             uuid         primary key default uuid_generate_v4(),
-        category_id    uuid         not null  references category (id),
-        tag_id         uuid         not null  references  tag (id),
+        created_at  timestamp     not null default current_timestamp,
+        category_id    uuid         not null  references category (id) on delete cascade,
+        tag_id         uuid         not null  references  tag (id) on delete cascade,
         title          jsonb        not null,
         description    jsonb        not null,
         images         jsonb        not null,
@@ -14,8 +15,7 @@ export async function up(knex: Knex): Promise<void> {
         telegram       varchar(255) not null,
         twitter        varchar(255) not null,
         facebook       varchar(255) not null,
-        subcategory_id uuid         not null  references subcategory (id),
-        created_at     timestamp    not null  default  current_timestamp
+        subcategory_id uuid         not null  references subcategory (id) on delete cascade
     );
   `);
 }

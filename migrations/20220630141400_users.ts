@@ -9,11 +9,11 @@ export async function up(knex: Knex): Promise<void> {
   create table if not exists users
   (
     id          uuid          primary key default uuid_generate_v4(),
+    created_at  timestamp     not null default current_timestamp,
     username    varchar(255)  not null,
     email       varchar(255)  not null,
     password    varchar(255)  not null,
-    role        users_role    not null default 'assistant',
-    create_at   timestamp     not null default current_timestamp
+    role        users_role    not null default 'assistant'
   );
   `);
 }

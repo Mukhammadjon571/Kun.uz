@@ -6,8 +6,8 @@ export async function up(knex: Knex): Promise<void> {
   create table if not exists rss
   (
     id          uuid          primary key default uuid_generate_v4(),
-    email       varchar(255)  not null,
-    created_at  timestamp     not null default current_timestamp
+    created_at  timestamp     not null default current_timestamp,
+    email       varchar(255)  not null
   );
    `)
 }
