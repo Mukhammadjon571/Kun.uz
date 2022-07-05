@@ -10,7 +10,7 @@ export async function up(knex: Knex): Promise<void> {
   (
     id          uuid        primary key     default uuid_generate_v4(),
     created_at  timestamp   not null    default         current_timestamp,
-    news_id     uuid        not null    references      news (id),
+    news_id     uuid        not null    references      news (id) on delete cascade,
     rating      news_rating      not null    default         '1'
   );
   `);

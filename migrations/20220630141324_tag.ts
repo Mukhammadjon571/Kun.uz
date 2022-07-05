@@ -5,7 +5,7 @@ export async function up(knex: Knex): Promise<void> {
   create table if not exists tag
   (
     id          uuid      primary key  default uuid_generate_v4(),
-    created_at  timestamp not null                  default  current_timestamp,
+    created_at  timestamp not null     default  current_timestamp,
     name        jsonb     not null
   );
   `);
