@@ -25,7 +25,11 @@ export class CommentRepo {
   }
 
   findAll({ offset, limit }: GetCommentParamsDTO) {
-    return this.knex.select('*').from('comment').offset(offset).limit(limit);
+    return this.knex
+      .select('*')
+      .from('comment')
+      .offset(offset)
+      .limit(limit);
   }
 
   async update(id: string, body: UpdateCommentDTO) {
