@@ -21,7 +21,6 @@ export class NewsRepo {
     telegram,
     twitter,
     facebook,
-    instagram,
     subcategory_id,
   }: CreateNewsDTO) {
     return (
@@ -34,7 +33,6 @@ export class NewsRepo {
           telegram,
           twitter,
           facebook,
-          instagram,
           subcategory_id,
         })
         .into('news')
@@ -64,7 +62,6 @@ export class NewsRepo {
     telegram,
     twitter,
     facebook,
-    instagram,
     subcategory_id,
   }: UpdateNewsDTO) {
     return (
@@ -77,7 +74,6 @@ export class NewsRepo {
           telegram,
           twitter,
           facebook,
-          instagram,
           subcategory_id,
         })
         .from('news')
