@@ -56,7 +56,7 @@ export class UpdateTagDTO {
   name: Record<string, string>;
 }
 
-export class DeleteTagParamsDTO {
+export class DeleteTagByIdDTO {
   @ApiProperty()
   @IsDefined()
   @IsUUID('4')
